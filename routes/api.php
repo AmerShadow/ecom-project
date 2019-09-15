@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Resources\SlideResource;
+use App\Model\Slide;
 use Illuminate\Http\Request;
 
 /*
@@ -58,3 +60,13 @@ Route::get('pincodes','Api\PinCodeController@index');
 Route::get('pincodes/{id}','Api\PinCodeController@show');
 Route::post('pincodes','Api\PinCodeController@store');
 Route::post('pincodes/update/{id}','Api\PinCodeController@update');
+
+
+/**
+ * Api for sliding images
+ */
+Route::get('slides', function () {
+    return SlideResource::collection(Slide::OrderBy('index')->get());
+
+});
+Route::post('/user','Api\UserController@store');

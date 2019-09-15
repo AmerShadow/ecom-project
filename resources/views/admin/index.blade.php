@@ -49,8 +49,8 @@
                <td>{{$user->pin_code}}</td>
                <td>{{$user->company}}</td>
 
-              <td><img src="{{asset('uploads/slide'.$user->profile_image)}}"  width=100></td>
-              <td><img src="{{asset('uploads/slide'.$user->id_proof)}}"  width=100></td>
+              <td><img src="{{asset('uploads/users/profile_image/'.$user->profile_image)}}" alt="no image"  width=100></td>
+              <td><img src="{{asset('uploads/users/id_proof/'.$user->id_proof)}}" alt="no image" width=100></td>
 
               <td>
                     status: {{$user->status}}

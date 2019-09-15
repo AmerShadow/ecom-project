@@ -66,7 +66,7 @@ class ItemImageController extends Controller
      */
     public function show($id)
     {
-        $itemimage=ItemImage::findOrFail($id);
+        $itemimage=ItemImage::where('item_id',$id)->first();
         return view('itemimage.read',compact('itemimage'));
     }
 

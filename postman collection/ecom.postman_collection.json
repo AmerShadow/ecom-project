@@ -1,0 +1,823 @@
+{
+	"info": {
+		"_postman_id": "d2bb28ec-59a6-48eb-86b1-00edf0f7bdfd",
+		"name": "ecom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "show single category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show all categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uodate a category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/update/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "casula shoes",
+									"type": "text"
+								},
+								{
+									"key": "parent_id",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/I:/Aiza Khan/AIZA KHAN MY SNAPS/480046809-480047819_2827.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "shoes",
+									"disabled": true
+								},
+								{
+									"key": "parent_id",
+									"value": "6",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "casual shoes",
+									"type": "text"
+								},
+								{
+									"key": "parent_id",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/I:/Aiza Khan/AIZA KHAN MY SNAPS/480046809-480047819_2827.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/update/18",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"update",
+								"18"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "shoes",
+									"disabled": true
+								},
+								{
+									"key": "parent_id",
+									"value": "6",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Items",
+			"item": [
+				{
+					"name": "Api Item List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/items",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Api single Item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/items/11",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"items",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Api Add Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Sparx shoes",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "original sports sparx shoes",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "black",
+									"type": "text"
+								},
+								{
+									"key": "size",
+									"value": "xl",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1300",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/I:/Aiza Khan/AIZA KHAN MY SNAPS/477549481-477550472_2604.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/items",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Api update Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "ray ban glass 132",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "first copy rayben glass",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "black",
+									"type": "text"
+								},
+								{
+									"key": "size",
+									"value": "xl",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1300",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/I:/Aiza Khan/AIZA KHAN MY SNAPS/477549481-477550472_2604.PNG"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/items/update/11",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"items",
+								"update",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api item delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/items/10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"items",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ItemImages",
+			"item": [
+				{
+					"name": "see images of single product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/items/images/12",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"items",
+								"images",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "see image by its image_id ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/itemimages/6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"itemimages",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Items Images",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/itemimages/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"itemimages",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add item images",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "item_id",
+									"value": "17",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Shadow/Downloads/sparx.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/itemimages",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"itemimages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update item image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "item_id",
+									"value": "17",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Shadow/Downloads/sparx.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/itemimages/update/22",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"itemimages",
+								"update",
+								"22"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pin codes",
+			"item": [
+				{
+					"name": "All pincodes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pincodes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pincodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "single pincode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pincodes/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pincodes",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add pincode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "pin_code",
+									"value": "431608",
+									"type": "text"
+								},
+								{
+									"key": "charges",
+									"value": "150",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pincodes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pincodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update pincode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "pin_code",
+									"value": "431608",
+									"type": "text"
+								},
+								{
+									"key": "charges",
+									"value": "150",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/pincodes/update/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"pincodes",
+								"update",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "slides",
+			"item": [
+				{
+					"name": "slides images",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/slides",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"slides"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": []
+		}
+	]
+}
