@@ -61,6 +61,21 @@
                         </div>
 
 
+                        <div class="col-md-6">
+							<div class="form-group">
+							<label for="exampleInputName">Tax(in percentage)</label>
+                    		<input type="number" name="tax_ratio" class="form-control" id="exampleInputName">
+						</div>
+                        </div>
+
+                        <div class="col-md-6">
+							<div class="form-group">
+							<label for="exampleInputName">Discount(in percentage)</label>
+                    		<input type="number" name="discount_ratio" class="form-control" id="exampleInputName">
+						</div>
+                        </div>
+
+
 
 
 

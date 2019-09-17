@@ -30,6 +30,8 @@ class ItemRequest extends FormRequest
             'color' => 'required',
             'size' => 'required',
             'price' => 'required',
+            'discount_ratio' => 'required',
+            'tax_ratio' => 'required',
         ];
     }
 }

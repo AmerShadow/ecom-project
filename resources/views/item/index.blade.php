@@ -26,6 +26,8 @@
                     <th>Name</th>
                     <th>category</th>
                     <th>price</th>
+                    <th>Dicount</th>
+                    <th>Tax</th>
                     <th>views</th>
                     <th>size</th>
                     <th>color</th>
@@ -42,6 +44,8 @@
                <td>{{$item->title}}</td>
                <td>{{@App\Model\Category::where('id', $item->category_id)->value('name')}}</td>
                <td>{{$item->price}}</td>
+              <td>{{$item->discount_ratio}}%</td>
+              <td>{{$item->tax_ratio}}%</td>
                <td>{{$item->views}}</td>
                <td>{{$item->size}}</td>
                <td>{{$item->color}}</td>

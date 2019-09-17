@@ -22,6 +22,8 @@ class CreateItemsTable extends Migration
             $table->string('size');
             $table->integer('views');
             $table->decimal('price',10,2);
+            $table->decimal('tax_ratio',3,2);
+            $table->decimal('discount_ratio',3,2);
             $table->integer('vendor_id')->unsigned();
             $table->timestamps();
         });

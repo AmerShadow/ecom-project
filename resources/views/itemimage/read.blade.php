@@ -27,12 +27,13 @@
 
         <div class="list-group-item">
             <div class="row">
-                <div class="col-md-4">Item Image</div>
-                <div class="col-md-8"> <img src="{{ asset('uploads/items_images/'.$itemimage->image)}}" width="500"></div>
-            </div>
+                <div class="col-md-2">Item Images</div>
+                <div class="col-md-8">
+                @foreach (@App\Model\ItemImage::where('item_id',$itemimage->item_id)->get() as $itemimage)
+                <img src="{{ asset('uploads/items_images/'.$itemimage->image)}}" width="200"></a>
+                @endforeach
+                </div>
+                </div>
         </div>
-
-
-
     </div>
 @endsection

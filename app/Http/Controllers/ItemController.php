@@ -46,6 +46,8 @@ class ItemController extends Controller
         $item->size=$request->size;
         $item->views=0;
         $item->vendor_id=0;
+        $item->discount_ratio=$request->discount_ratio;
+        $item->tax_ratio=$request->tax_ratio;
         $item->price=$request->price;
 
 
@@ -62,7 +64,7 @@ class ItemController extends Controller
                 }
             }
             $itemImage->save();
-            return redirect()->back()->with('success','Item added successfully');
+            return $this->index();
         }else{
             return redirect()->back()->with('failure','something went wrong');
         }
@@ -117,11 +119,22 @@ class ItemController extends Controller
         $item->color=$request->color;
         $item->size=$request->size;
         $item->price=$request->price;
+        $item->discount_ratio=$request->discount_ratio;
+        $item->tax_ratio=$request->tax_ratio;
 
 
 
         if($item->update()){
-            return redirect('items')->with('Item updated');
+            $itemImage=ItemImage::where('item_id',$item->id)->first();
+            if($request->file('image')){
+                $upload= $request->file('image');
+                $fileformat=time().'.'.$upload->getClientOriginalExtension();
+                if($upload->move('uploads/items_images/',$fileformat)){
+                    $itemImage->image=$fileformat;
+                }
+            }
+            $itemImage->update();
+            return $this->index();
         }else{
             return redirect()->back()->with('something went wrong');
         }
@@ -136,7 +149,8 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        if(Item::where('id',$id)->delete()){
+        $item=Item::find($id);
+        if($item->delete()){
             return redirect('items')->with('success','item deleted');
         }else{
             return redirect()->back()->with('failure','failed! try again');

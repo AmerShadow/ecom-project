@@ -68,12 +68,37 @@
                         </div>
 
 
-                        <div class="col-md-8">
+                        <div class="col-md-6">
+							<div class="form-group">
+							<label for="exampleInputName">Tax(in percentage)</label>
+                            <input type="number" name="tax_ratio" class="form-control" id="exampleInputName" value="{{$item->tax_ratio}}">
+						</div>
+                        </div>
+
+                        <div class="col-md-6">
+							<div class="form-group">
+							<label for="exampleInputName">Discount(in percentage)</label>
+                            <input type="number" name="discount_ratio" class="form-control" id="exampleInputName" value="{{$item->discount_ratio}}">
+						</div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label for="exampleInputName">Item image</label>
+                            <input type="file" name="image" multiple class="form-control" id="exampleInputName">
+                        </div>
+                        </div>
+
+
+                        <div class="col-md-6">
                             <div class="form-group">
                             <label for="exampleInputName">Description</label>
                                        <textarea class="form-control" name="description" rows="3">{{$item->description}}</textarea>
                           </div>
                           </div>
+
+
 
 
 
