@@ -32,7 +32,7 @@ Route::post('items/images/update/{id}','Api\ItemImageController@update');
  */
 
 Route::get('items','Api\ItemController@index');
-Route::get('items/{id}','Api\ItemController@show');
+Route::get('items/{id}','Api\ItemController@show')->name('api.item');
 Route::post('items','Api\ItemController@store');
 Route::post('items/update/{id}','Api\ItemController@update');
 
@@ -69,4 +69,17 @@ Route::get('slides', function () {
     return SlideResource::collection(Slide::OrderBy('index')->get());
 
 });
+
+
+
+/**
+ * Api for customer cart
+ */
+Route::get('cart/{user_id}','CartController@index');
+Route::post('cart/{customer_id}/{item_id}','CartController@store');
+Route::delete('cart/{id}','CartController@destroy');
+Route::get('cart/cartplus/{id}','CartController@cartPlus');
+Route::get('cart/cartminus/{id}','CartController@cartMinus');
+
+
 Route::post('/user','Api\UserController@store');
