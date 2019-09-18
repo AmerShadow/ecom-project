@@ -29,6 +29,10 @@ class CartController extends Controller
 
     public function store($customer_id,$item_id)
     {
+        if ($cart=Cart::where('customer_id',$customer_id)->where('item_id',$item_id)->first()) {
+            $this->cartPlus($cart->id);
+           return $cart;
+        }
 
         if (User::find($customer_id)) {
             if (Item::find($item_id)) {
