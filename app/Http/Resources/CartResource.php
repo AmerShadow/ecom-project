@@ -15,11 +15,14 @@ class CartResource extends JsonResource
      */
     public function toArray($request)
     {
+        $item=Item::where('id',$this->item_id)->first();
         return [
-            'item' => Item::where('id',$this->item_id)->value('title'),
+            'item' => $item->title,
             'item_detail' => route('api.item', $this->item_id),
-            'quantity' => $this->quantity,
-            'price' => $this->price,
+            'quantity' => $item->quantity,
+            'tax_ratio' => $item->tax_ratio,
+            'discount_ratio' => $item->discount_ratio,
+            'price' => $item->price,
         ];
      }
 }

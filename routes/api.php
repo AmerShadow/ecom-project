@@ -82,4 +82,11 @@ Route::get('cart/cartplus/{id}','CartController@cartPlus');
 Route::get('cart/cartminus/{id}','CartController@cartMinus');
 
 
+/**
+ * Api for order and order confirmation
+ */
+Route::get('confirmorder/{customer_id}','OrderController@orderPreview');
+//This api is used to remove element from order but it will be in customers cart
+Route::get('confirmorder/removeitem/{itemid}/{customerid}','OrderController@removeItem');
+
 Route::post('/user','Api\UserController@store');

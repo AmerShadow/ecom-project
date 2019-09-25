@@ -24,7 +24,6 @@ class CreateOrderItemsTable extends Migration
             $table->decimal('discount_ratio',3,2);
             $table->decimal('total',10,2);
 
-
             $table->timestamps();
         });
     }
