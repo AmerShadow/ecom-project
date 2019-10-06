@@ -7,7 +7,6 @@
 @stop
 
 @section('content')
-                  <a href="{{route('items.create')}}" class=" btn btn-sm btn-primary"><i class="fa fa-plus"></i> Create New item</a><br>
 
 <section class="content">
  <div class="row">

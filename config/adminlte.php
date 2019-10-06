@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+
 return [
 
     /*
@@ -30,7 +32,7 @@ return [
     |
     */
 
-    'logo' => '<b>Mi</b>SHOW',
+    'logo' => 'the<b>SPACE</b>mark',
 
     'logo_mini' => '<b>A</b>LT',
 
@@ -126,36 +128,118 @@ return [
     | Awesome. A string instead of an array represents a header in sidebar
     | layout. The 'can' is a filter on Laravel's built in Gate functionality.
     */
-
     'menu' => [
         [
             'text' => 'search',
             'search' => true,
         ],
-        ['header' => 'main_navigation'],
+        ['header' => 'Admin portal',
+         'can' => 'admin',
+        ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Dashboard',
+            'url'  => 'home',
+            'icon' => 'fas fa-fw fa-user',
+            'can' => 'admin',
         ],
 
         [
-            'text'    => 'Items',
+            'text' => 'customers',
+            'url'  => 'admin/buyerlist',
+            'icon' => 'fas fa-fw fa-user',
+            'can' => 'admin',
+        ],
+        [
+            'text' => 'sellers',
+            'url'  => 'admin/sellerlist',
+            'icon' => 'fas fa-fw fa-user',
+            'can' => 'admin',
+        ],
+        [
+            'text'    => 'Products',
             'url'     => '#',
             'icon' => 'fas fa-fw fa-list',
+            'can' => 'admin',
 
             'submenu' => [
                 [
-                    'text' => 'create Item',
+                    'text' => 'Add product',
                     'url'  => 'items/create',
                 ],
                 [
-                    'text'    => 'show items',
+                    'text'    => 'Products',
                     'url'     => 'items',
 
                 ],
             ],
         ],
+        [
+            'text'    => 'Delivery Management',
+            'url'     => '#',
+            'icon' => 'fas fa-fw fa-list',
+            'can' => 'admin',
+
+            'submenu' => [
+                [
+                    'text' => 'Add Delivery Peer',
+                    'url'  => 'admin/adddeliverypeer',
+                ],
+                [
+                    'text'    => 'Delivery Person List',
+                    'url'     => 'admin/deliverylist',
+
+                ],
+            ],
+        ],
+        [
+            'text' => 'Transactin details',
+            'url'  => '#',
+            'icon' => 'fas fa-fw fa-user',
+            'can' => 'admin',
+
+            'submenu' => [
+                [
+                'text' => 'successfull transactions',
+                'url' => 'admin/transactions/seccessfull',
+                ],
+                [
+                'text' => 'Failed transactions',
+                'url' => 'admin/transactions/failed',
+                ],
+                [
+                    'text' => 'Transactions Reports',
+                    'url' => 'admin/transactions/reports',
+                    ]
+            ],
+        ],
+        [
+            'text' => 'Subscription plans',
+            'url'  => 'subscriptions',
+            'icon' => 'fas fa-fw fa-user',
+            'can' => 'admin',
+        ],
+
+        [
+            'text' => 'Permissions',
+            'url'  => '#',
+            'icon' => 'fas fa-fw fa-user',
+            'can' => 'admin',
+
+            'submenu' => [
+                [
+                'text' => 'Customer Permissions',
+                'url' => 'admin/permissions/customer',
+                ],
+                [
+                'text' => 'Seller permissions',
+                'url' => 'admin/permissions/seller',
+                ],
+            ],
+        ],
+
+
+
+        /***
         [
             'text'    => 'Item Images',
             'url'     => '#',
@@ -171,46 +255,33 @@ return [
 
                 ],
             ],
-        ],
+        ], */
         [
-            'text'    => 'categary',
+            'text'    => 'categories',
             'url'     => '#',
             'icon'    => 'fas fa-fw fa-list-alt',
+            'can' => 'admin',
 
             'submenu' => [
                 [
-                    'text' => 'create category',
+                    'text' => 'Add category',
                     'url'  => 'categories/create',
                 ],
                 [
-                    'text'    => 'show categories',
+                    'text'    => 'All categories',
                     'url'     => 'categories',
 
                 ],
             ],
         ],
 
-        [
-            'text'    => 'Pin codes',
-            'url'     => '#',
-            'icon'    => 'fas fa-fw fa-map-marker',
-            'submenu' => [
-                [
-                    'text' => 'Add new pin code',
-                    'url'  => 'pincodes/create',
-                ],
-                [
-                    'text'    => 'show available pincodes',
-                    'url'     => 'pincodes',
 
-                ],
-            ],
-        ],
 
         [
             'text'    => 'slides',
             'url'     => '#',
             'icon'    => 'fas fa-fw fa-slideshare',
+            'can' => 'admin',
             'submenu' => [
                 [
                     'text' => 'Add new slide image',
@@ -229,12 +300,88 @@ return [
 
 
 
-        ['header' => 'account_settings'],
-        [
-            'text' => 'user list',
-            'url'  => 'admin/userlist',
-            'icon' => 'fas fa-fw fa-user',
+        ['header' => 'SELLER PANEL',
+         'can' => 'seller',
         ],
+
+        [
+            'text' => 'Dashboard',
+            'url'  => 'seller',
+            'icon' => 'fas fa-fw fa-user',
+            'can' => 'seller',
+        ],
+        [
+            'text' =>   'Products',
+            'url' => '#',
+            'icon'    => 'fas fa-fw fa-map-marker',
+            'can' => 'seller',
+            'submenu' => [
+                [
+                    'text'    => 'Add product',
+                    'url'     => 'seller/products/create',
+
+                ],
+                [
+                    'text' => 'product list',
+                    'url'  => 'seller/products',
+                ],
+
+            ],
+        ],
+        [
+            'text'    => 'Orders',
+            'url'     => '#',
+            'icon'    => 'fas fa-fw fa-map-marker',
+            'can' => 'seller',
+            'submenu' => [
+                [
+                    'text' => 'Recieved orders',
+                    'url'  => 'seller/orders/recieved',
+                ],
+                [
+                    'text'    => 'dispatched orders',
+                    'url'     => 'seller/orders/dispatched',
+
+                ],
+                [
+                    'text'    => 'order history',
+                    'url'     => 'seller/orders/history',
+
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Pin codes',
+            'url'     => '#',
+            'icon'    => 'fas fa-fw fa-map-marker',
+            'can' => 'seller',
+            'submenu' => [
+                [
+                    'text' => 'Add new pin code',
+                    'url'  => 'pincodes/create',
+                ],
+                [
+                    'text'    => 'show available pincodes',
+                    'url'     => 'pincodes',
+
+                ],
+            ],
+        ],
+        [
+            'text'    => 'seller profile',
+            'url'     => 'seller/profile',
+            'icon'    => 'fas fa-fw fa-map-marker',
+            'can' => 'seller',
+
+        ],
+        [
+            'text'    => 'Buy subscription plan',
+            'url'     => 'seller/subscribe',
+            'icon'    => 'fas fa-fw fa-map-marker',
+            'can' => 'seller',
+
+        ],
+
 
         ],
 

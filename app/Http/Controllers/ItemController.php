@@ -6,9 +6,15 @@ use App\Http\Requests\ItemRequest;
 use App\Model\Item;
 use App\Model\ItemImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ItemController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +51,7 @@ class ItemController extends Controller
         $item->color=$request->color;
         $item->size=$request->size;
         $item->views=0;
-        $item->vendor_id=0;
+        $item->vendor_id=Auth::user()->id;
         $item->discount_ratio=$request->discount_ratio;
         $item->tax_ratio=$request->tax_ratio;
         $item->price=$request->price;

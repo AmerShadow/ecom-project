@@ -51,6 +51,11 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
+            'address' => ['required','string','max:50'],
+            'pin_code' => ['required','string','max:10'],
+            'profile_image' => ['required','file'],
+            'id_proof' => ['required','file'],
+            'company' => ['required','string','max:50'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
@@ -61,11 +66,30 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(array $data,$profileImageFileFormat,$idProofFileFormat)
     {
+
+        /**$profile_image=file($data['profile_image']);
+        $id_proof=file($data['id_proof']);
+
+        $profileImageFileFormat=time().'.'.$profile_image->getClientOriginalExtension();
+        $idProofFileFormat=time().'.'.$id_proof->getClientOriginalExtension();
+
+        $profile_image->move('uploads/users/id_proof',$idProofFileFormat);
+        $profile_image->move('uploads/users/profile_image',$profileImageFileFormat);
+
+        */
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'mobile_no' => $data['mobile_no'],
+            'address' => $data['address'],
+            'pin_code' => $data['pin_code'],
+            'company' => $data['mobile_no'],
+            'profile_image' => $profileImageFileFormat,
+            'id_proof' => $idProofFileFormat,
+            'type' => 2,
+            'status' => 1,
             'password' => Hash::make($data['password']),
         ]);
     }

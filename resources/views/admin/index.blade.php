@@ -3,12 +3,10 @@
 @section('title', 'items')
 
 @section('content_header')
-    <h1>Item Details</h1>
+    <h1>Customer List</h1>
 @stop
 
 @section('content')
-                  <a href="{{route('register')}}" class=" btn btn-sm btn-primary"><i class="fa fa-plus"></i>Add user</a><br>
-
 <section class="content">
  <div class="row">
  	<div class="col-12">
@@ -26,10 +24,9 @@
                     <th>Name</th>
                     <th>email</th>
                     <th>mobile no</th>
-                    <th>type</th>
                     <th>address</th>
                     <th>pincode</th>
-                    <th>company</th>
+
                     <th>image</th>
                     <th>id proof</th>
                     <th>Status</th>
@@ -44,10 +41,9 @@
                <td>{{$user->name}}</td>
                <td>{{$user->email}}</td>
                <td>{{$user->mobile_no}}</td>
-               <td>{{$user->type}}</td>
                <td>{{$user->address}}</td>
                <td>{{$user->pin_code}}</td>
-               <td>{{$user->company}}</td>
+
 
               <td><img src="{{asset('uploads/users/profile_image/'.$user->profile_image)}}" alt="no image"  width=100></td>
               <td><img src="{{asset('uploads/users/id_proof/'.$user->id_proof)}}" alt="no image" width=100></td>
@@ -61,6 +57,8 @@
                     change status</button>
             </form></td>
                 <td>
+                <a href="{{route('admin.buyerdetails',$user->id)}}" style="margin-left: 5px;" class="label label-success"><i class="fa fa-eye  fa-1x" ></i>&ensp;</span></a>
+
 
 
 

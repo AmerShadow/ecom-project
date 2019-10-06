@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Model\PinCode;
 use Illuminate\Http\Request;
 
 class PinCodeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,7 @@ class PinCodeController extends Controller
      */
     public function index()
     {
-        $pincodes=PinCode::all();
+        $pincodes=PinCode::where('vendor_id',Auth::user()->id)->get();
         return view('pincode.index',compact('pincodes'));
     }
 
@@ -43,8 +50,9 @@ class PinCodeController extends Controller
         $pinCode=new PinCode();
         $pinCode->pin_code=$request->pin_code;
         $pinCode->charges=$request->charges;
+        $pinCode->vendor_id=Auth::user()->id;
         if($pinCode->save()){
-            return redirect()->back()->with('success','pin code added successfully');
+            return redirect()->route('pincodes.index');
         }
         else{
             return redirect()->back()->with('failed','something went wrong');
@@ -60,7 +68,7 @@ class PinCodeController extends Controller
      */
     public function show($id)
     {
-        $pincode=PinCode::findOrFail($id);
+        $pincode=PinCode::find($id);
         return view('pincode.read',compact('pincode'));
     }
 
@@ -72,7 +80,7 @@ class PinCodeController extends Controller
      */
     public function edit($id)
     {
-        $pincode=PinCode::findOrFail($id);
+        $pincode=PinCode::find($id);
         return view('pincode.update',compact('pincode'));
     }
 
@@ -92,6 +100,7 @@ class PinCodeController extends Controller
         //$pinCode=PinCode::findOrFail($id);
         $pinCode->pin_code=$request->pin_code;
         $pinCode->charges=$request->charges;
+        $pinCode->vendor_id=Auth::user()->id;
         if($pinCode->update()){
             return redirect()->back()->with('success','pin code details updated successfully');
         }
