@@ -38,6 +38,6 @@ class flushSessions extends Command
      */
     public function handle()
     {
-        DB::table('sessions')->truncate();
+
     }
 }
